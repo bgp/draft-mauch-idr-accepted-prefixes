@@ -65,7 +65,9 @@
     </section>
 
     <section anchor="Solution" title="Solution">
-        <t>The requesting device will send a BGP message of type XXX to the partner device requesting the list of the NLRI. (excerpted from rfc2918)
+        <t>
+            The requesting device will send a BGP message of type XXX to the partner device requesting the list of the NLRI. (excerpted from rfc2918)
+        </t>
 
 <figure title="Version Negotiation Packet" anchor="version-negotiation-format"><artwork><![CDATA[
 
