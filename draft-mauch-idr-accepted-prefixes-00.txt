@@ -4,8 +4,9 @@
 
 Inter-Domain Routing                                            J. Mauch
 Internet-Draft                                                    Akamai
-Intended status: Standards Track                           July 31, 2019
-Expires: February 1, 2020
+Intended status: Standards Track                             J. Snijders
+Expires: February 1, 2020                                            NTT
+                                                           July 31, 2019
 
 
          Provide for method to know accepted and rejected NLRI.
@@ -52,8 +53,7 @@ Copyright Notice
 
 
 
-
-Mauch                   Expires February 1, 2020                [Page 1]
+Mauch & Snijders        Expires February 1, 2020                [Page 1]
 
 Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
 
@@ -67,7 +67,7 @@ Table of Contents
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   3
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   3
    7.  Normative References  . . . . . . . . . . . . . . . . . . . .   4
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   4
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   4
 
 1.  Introduction
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Mauch                   Expires February 1, 2020                [Page 2]
+Mauch & Snijders        Expires February 1, 2020                [Page 2]
 
 Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
 
@@ -165,7 +165,7 @@ Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
 
 
 
-Mauch                   Expires February 1, 2020                [Page 3]
+Mauch & Snijders        Expires February 1, 2020                [Page 3]
 
 Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
 
@@ -182,7 +182,7 @@ Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
               DOI 10.17487/RFC4271, January 2006,
               <https://www.rfc-editor.org/info/rfc4271>.
 
-Author's Address
+Authors' Addresses
 
    Jared Mauch
    Akamai Technologies Inc.
@@ -193,6 +193,13 @@ Author's Address
    Email: jared@akamai.com
 
 
+   Job Snijders
+   NTT Ltd
+   Theodorus Majofskistraat 100
+   Amsterdam  1065 SZ
+   The Netherlands
+
+   Email: job@ntt.net
 
 
 
@@ -214,11 +221,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-Mauch                   Expires February 1, 2020                [Page 4]
+Mauch & Snijders        Expires February 1, 2020                [Page 4]

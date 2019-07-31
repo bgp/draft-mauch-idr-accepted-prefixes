@@ -4,8 +4,9 @@
 
 Inter-Domain Routing                                            J. Mauch
 Internet-Draft                                                    Akamai
-Intended status: Standards Track                           July 31, 2019
-Expires: February 1, 2020
+Intended status: Standards Track                             J. Snijders
+Expires: February 1, 2020                                            NTT
+                                                           July 31, 2019
 
 
          Provide for method to know accepted and rejected NLRI.
@@ -57,7 +58,7 @@ Table of Contents
    5.  Security Considerations
    6.  IANA Considerations
    7.  Normative References
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -146,7 +147,7 @@ Table of Contents
               DOI 10.17487/RFC4271, January 2006,
               <https://www.rfc-editor.org/info/rfc4271>.
 
-Author's Address
+Authors' Addresses
 
    Jared Mauch
    Akamai Technologies Inc.
@@ -155,4 +156,13 @@ Author's Address
    US
 
    Email: jared@akamai.com
+
+
+   Job Snijders
+   NTT Ltd
+   Theodorus Majofskistraat 100
+   Amsterdam  1065 SZ
+   The Netherlands
+
+   Email: job@ntt.net
 
