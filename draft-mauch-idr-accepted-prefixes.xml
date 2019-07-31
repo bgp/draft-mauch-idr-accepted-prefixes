@@ -69,7 +69,8 @@
             The requesting device will send a BGP message of type XXX to the partner device requesting the list of the NLRI. (excerpted from rfc2918)
         </t>
 
-<figure title="Version Negotiation Packet" anchor="version-negotiation-format"><artwork><![CDATA[
+        <figure title="Version Negotiation Packet" anchor="version-negotiation-format">
+<artwork><![CDATA[
 
           Message Format: One AFI, SAFI encoded as
 
@@ -89,14 +90,15 @@
 
 <t>               SAFI - Subsequent Address Family Identifier (8 bit).</t>
 
+<t>
         <list style="symbols">
             <t>Responses will include:</t>
             <t>Count of NLRI accepted (unsigned 32-bits)</t>
             <t>Count of NLRI rejected (unsigned 32-bits)</t>
             <t>List of NLRI accepted (NLRI list in same format as UPDATE)</t>
             <t>List of NLRI rejected (NLRI list in same format as UPDATE - infeasible)</t>
-            </list>
-          </t>
+        </list>
+    </t>
     </section>
 
 
@@ -120,12 +122,15 @@
     <references title="Normative References">
         <?rfc include="reference.RFC.2119.xml"?>
         <?rfc include="reference.RFC.4271.xml"?>
-        <?rfc include="reference.RFC.4760.xml"?>
-        <?rfc include="reference.RFC.5492.xml"?>
+        <!-- <?rfc include="reference.RFC.4760.xml"?> -->
+        <!-- <?rfc include="reference.RFC.5492.xml"?> -->
     </references>
+
+<!--
     <references title="Informational References">
         <?rfc include="reference.RFC.2918.xml"?>
     </references>
+-->
 
 
 
