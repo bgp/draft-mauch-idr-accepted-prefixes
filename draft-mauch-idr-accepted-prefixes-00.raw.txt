@@ -89,13 +89,12 @@ Table of Contents
    partner device requesting the list of the NLRI. (excerpted from
    rfc2918)
 
+   Message Format: One AFI, SAFI encoded as
 
-             Message Format: One AFI, SAFI encoded as
-
-                     0       7      15      23      31
-                     +-------+-------+-------+-------+
-                     |      AFI      | Res.  | SAFI  |
-                     +-------+-------+-------+-------+
+   0       7      15      23      31
+   +-------+-------+-------+-------+
+   |      AFI      | Res.  | SAFI  |
+   +-------+-------+-------+-------+
 
                    Figure 1: Version Negotiation Packet
 

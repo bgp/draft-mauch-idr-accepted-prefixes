@@ -5,7 +5,7 @@
 <head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 
-  <title>Provide for method to know accepted and rejected NLRI.</title>
+  <title>Provide for method to know accepted and rejected NLRI.  </title>
 
   <style type="text/css" title="Xml2Rfc (sans serif)">
   /*<![CDATA[*/
@@ -390,8 +390,8 @@
   <meta name="dct.creator" content="Mauch, J. and J. Snijders" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-mauch-idr-accepted-prefixes-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2019-31" />
-  <meta name="dct.abstract" content="This document defines a method to receive accepted and rejected NLRI over a BGP peering session." />
-  <meta name="description" content="This document defines a method to receive accepted and rejected NLRI over a BGP peering session." />
+  <meta name="dct.abstract" content="This document defines a method to receive accepted and rejected NLRI over a BGP peering session.  " />
+  <meta name="description" content="This document defines a method to receive accepted and rejected NLRI over a BGP peering session.  " />
 
 </head>
 
@@ -425,11 +425,11 @@
     </tbody>
   </table>
 
-  <p class="title">Provide for method to know accepted and rejected NLRI.<br />
+  <p class="title">Provide for method to know accepted and rejected NLRI.  <br />
   <span class="filename">draft-mauch-idr-accepted-prefixes-00</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
-<p>This document defines a method to receive accepted and rejected NLRI over a BGP peering session.</p>
+<p>This document defines a method to receive accepted and rejected NLRI over a BGP peering session.  </p>
 <h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
@@ -472,7 +472,7 @@
 <p id="rfc.section.1.p.3">This proposal intends to provide an automated method to see the NLRI eligible for selection that pass any filtering methods provided by the peer software stack.  </p>
 <h1 id="rfc.section.2">
 <a href="#rfc.section.2">2.</a> Requirements Language</h1>
-<p id="rfc.section.2.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119" class="xref">RFC 2119</a>.</p>
+<p id="rfc.section.2.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119" class="xref">RFC 2119</a>.  </p>
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> <a href="#Solution" id="Solution">Solution</a>
 </h1>
@@ -480,19 +480,18 @@
 <div id="rfc.figure.1"></div>
 <div id="version-negotiation-format"></div>
 <pre>
-
-          Message Format: One AFI, SAFI encoded as
-
-                  0       7      15      23      31
-                  +-------+-------+-------+-------+
-                  |      AFI      | Res.  | SAFI  |
-                  +-------+-------+-------+-------+
+Message Format: One AFI, SAFI encoded as
+    
+0       7      15      23      31
++-------+-------+-------+-------+
+|      AFI      | Res.  | SAFI  |
++-------+-------+-------+-------+
 </pre>
 <p class="figure">Figure 1: Version Negotiation Packet</p>
-<p id="rfc.section.3.p.2">The meaning, use and encoding of this AFI, SAFI field is the same as defined in [BGP-MP, sect. 7]. More specifically,</p>
-<p id="rfc.section.3.p.3">AFI  - Address Family Identifier (16 bit).</p>
-<p id="rfc.section.3.p.4">Res. - Reserved (8 bit) field. Should be set to 0 by the sender and ignored by the receiver.</p>
-<p id="rfc.section.3.p.5">SAFI - Subsequent Address Family Identifier (8 bit).</p>
+<p id="rfc.section.3.p.2">The meaning, use and encoding of this AFI, SAFI field is the same as defined in [BGP-MP, sect. 7]. More specifically, </p>
+<p id="rfc.section.3.p.3">AFI  - Address Family Identifier (16 bit).  </p>
+<p id="rfc.section.3.p.4">Res. - Reserved (8 bit) field. Should be set to 0 by the sender and ignored by the receiver.  </p>
+<p id="rfc.section.3.p.5">SAFI - Subsequent Address Family Identifier (8 bit).  </p>
 <p></p>
 
 <ul>
@@ -507,11 +506,11 @@
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a>
 </h1>
-<p id="rfc.section.4.p.1">The authors would like to thank the following people for their comments and support: XXX.</p>
+<p id="rfc.section.4.p.1">The authors would like to thank the following people for their comments and support: XXX.  </p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#Security" id="Security">Security Considerations</a>
 </h1>
-<p id="rfc.section.5.p.1">This message MAY be subject to rate-limits by a partner device to protect itself from CPU or other resource exhaustion.  A suggested interval is to not permit more than one request per 60 seconds.</p>
+<p id="rfc.section.5.p.1">This message MAY be subject to rate-limits by a partner device to protect itself from CPU or other resource exhaustion.  A suggested interval is to not permit more than one request per 60 seconds.  </p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> IANA Considerations</h1>
 <p id="rfc.section.6.p.1">This document has unknown IANA Considerations </p>

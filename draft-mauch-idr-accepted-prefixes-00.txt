@@ -55,7 +55,7 @@ Copyright Notice
 
 Mauch & Snijders        Expires February 1, 2020                [Page 1]
 
-Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
+Internet-Draft            BGP Accepted Prefixes                July 2019
 
 
 Table of Contents
@@ -66,7 +66,7 @@ Table of Contents
    4.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   3
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   3
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   3
-   7.  Normative References  . . . . . . . . . . . . . . . . . . . .   4
+   7.  Normative References  . . . . . . . . . . . . . . . . . . . .   3
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   4
 
 1.  Introduction
@@ -98,30 +98,21 @@ Table of Contents
    partner device requesting the list of the NLRI. (excerpted from
    rfc2918)
 
+   Message Format: One AFI, SAFI encoded as
 
+   0       7      15      23      31
+   +-------+-------+-------+-------+
+   |      AFI      | Res.  | SAFI  |
+   +-------+-------+-------+-------+
 
-
-
-
-
-
-
+                   Figure 1: Version Negotiation Packet
 
 
 
 Mauch & Snijders        Expires February 1, 2020                [Page 2]
 
-Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
+Internet-Draft            BGP Accepted Prefixes                July 2019
 
-
-             Message Format: One AFI, SAFI encoded as
-
-                     0       7      15      23      31
-                     +-------+-------+-------+-------+
-                     |      AFI      | Res.  | SAFI  |
-                     +-------+-------+-------+-------+
-
-                   Figure 1: Version Negotiation Packet
 
    The meaning, use and encoding of this AFI, SAFI field is the same as
    defined in [BGP-MP, sect. 7].  More specifically,
@@ -159,17 +150,6 @@ Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
 
    This document has unknown IANA Considerations
 
-
-
-
-
-
-
-Mauch & Snijders        Expires February 1, 2020                [Page 3]
-
-Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
-
-
 7.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -181,6 +161,14 @@ Internet-Draft             BGP-TRACE-ACCEPTED                  July 2019
               Border Gateway Protocol 4 (BGP-4)", RFC 4271,
               DOI 10.17487/RFC4271, January 2006,
               <https://www.rfc-editor.org/info/rfc4271>.
+
+
+
+
+Mauch & Snijders        Expires February 1, 2020                [Page 3]
+
+Internet-Draft            BGP Accepted Prefixes                July 2019
+
 
 Authors' Addresses
 
@@ -200,6 +188,18 @@ Authors' Addresses
    The Netherlands
 
    Email: job@ntt.net
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
