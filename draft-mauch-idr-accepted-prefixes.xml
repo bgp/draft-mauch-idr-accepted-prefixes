@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rfc SYSTEM "rfc2629.dtd" []>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd">
 <?rfc strict="yes" ?>
 <?rfc toc="yes"?>
 <?rfc tocompact="yes"?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <rfc category="std" ipr="trust200902" docName="draft-mauch-idr-accepted-prefixes-00" submissionType="IETF">
-
-    <front>
-
-        <title abbrev="BGP Accepted Prefixes">
-                Provide for method to know accepted and rejected NLRI.
-        </title>
-
-        <author fullname="Jared Mauch" initials="J." surname="Mauch">
-            <organization abbrev="Akamai">Akamai Technologies Inc.</organization>
-            <address>
-                <postal>
-                    <street>8285 Reese Lane</street>
-                    <code>Michigan 48103</code>
-                    <city>Ann Arbor</city>
-                    <country>US</country>
-                </postal>
-                <email>jared@akamai.com</email>
-            </address>
-        </author>
-
+  <front>
+    <title abbrev="BGP-TRACE-ACCEPTED">Provide for method to know accepted and rejected NLRI.</title>
+    <author fullname="Jared Mauch" initials="J." surname="Mauch">
+      <organization abbrev="Akamai">Akamai Technologies Inc.</organization>
+      <address>
+        <postal>
+          <street>8285 Reese Lane</street>
+          <code>Michigan 48103</code>
+          <city>Ann Arbor</city>
+          <country>US</country>
+        </postal>
+        <email>jared@akamai.com</email>
+      </address>
+    </author>
         <author fullname="Job Snijders" initials="J." surname="Snijders">
             <organization abbrev="NTT">NTT Ltd</organization>
 
@@ -41,120 +35,95 @@
             </address>
         </author>
 
-        <date />
+    <date year="2019"/>
+    <area>Routing</area>
+    <workgroup>Inter-Domain Routing</workgroup>
+    <keyword>Internet Draft</keyword>
+    <keyword>BGP</keyword>
+    <abstract>
+      <t>This document defines a method to receive accepted and rejected NLRI
+            over a BGP peering session.</t>
+    </abstract>
+  </front>
+  <middle>
+    <section anchor="Introduction" title="Introduction">
+      <t>BGP <xref target="RFC4271"/> operators face challenges when attempting
+    to troubleshoot external BGP sessions.  Commonly operators debug BGP sessions
+    with commands that display the results of advertised or received routes.  </t>
+      <t>When operating a network, you can easily verify you are sending routes to a
+    BGP peer, but you have limited ability to understand the external partner
+    device.  Common debugging tools such as a looking glass or contacting a
+    remote operator via e-mail, telephone or other out of band methods is required.</t>
+      <t>This proposal intends to provide an automated method to see the NLRI
+    eligible for selection that pass any filtering methods provided by the
+    peer software stack.</t>
+    </section>
+    <section title="Requirements Language">
+      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+        "OPTIONAL" in this document are to be interpreted as described in BCP
+        14 <xref target="RFC2119"/> when, and only
+        when, they appear in all capitals, as shown here.</t>
+    </section>
+    <section anchor="Solution" title="Solution">
+      <t>The requesting device will send a BGP message of type XXX to the partner device requesting the list of the NLRI. (excerpted from rfc2918)</t>
+      <figure>
+        <artwork><![CDATA[
 
-        <area>Routing</area>
-        <workgroup>Inter-Domain Routing</workgroup>
-        <keyword>Internet Draft</keyword>
-        <keyword>BGP</keyword>
-        <abstract>
-            <t>
-                    This document defines a method to receive accepted and rejected NLRI over a BGP peering session.
-            </t>
-        </abstract>
+          Message Format: One AFI, SAFI encoded as
 
-    </front>
+                  0       7      15      23      31
+                  +-------+-------+-------+-------+
+                  |      AFI      | Res.  | SAFI  |
+                  +-------+-------+-------+-------+
+]]></artwork>
+      </figure>
+      <t>The meaning, use and encoding of this AFI, SAFI field is the
+          same as defined in [BGP-MP, sect. 7]. More specifically,</t>
+      <t>AFI  - Address Family Identifier (16 bit).</t>
+      <t>Res. - Reserved (8 bit) field. Should be set to 0 by the
+                      sender and ignored by the receiver.</t>
+      <t>SAFI - Subsequent Address Family Identifier (8 bit).</t>
+        <t>Responses will include:</t>
+      <figure>
+        <artwork><![CDATA[
 
-    <middle>
-        <section anchor="Introduction" title="Introduction">
-            <t>
-                BGP <xref target="RFC4271" /> operators face challenges when attempting to troubleshoot external BGP sessions.
-                Commonly operators debug BGP sessions with commands that display the results of advertised or received routes.
-            </t>
+          Message Format: per
 
-            <t>
-                When operating a network, you can easily verify you are sending routes to a BGP peer, but you have limited ability to understand the external partner device.
-                Common debugging tools such as a looking glass or contacting a remote operator via e-mail, telephone or other out of band methods is required.
-            </t>
+                  0       15      31      47      64
+                  +---+---+---+---+---+---+---+---+
+                  |   accepted    |    rejected   |
+                  +---+---+---+---+---+---+---+---+
+]]></artwork>
+</figure>
 
-            <t>
-                This proposal intends to provide an automated method to see the NLRI eligible for selection that pass any filtering methods provided by the peer software stack.
-            </t>
-        </section>
-
-        <section title="Requirements Language">
-            <t>
-                    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119">RFC 2119</xref>.
-           </t>
-        </section>
-
-        <section anchor="Solution" title="Solution">
-            <t>
-                The requesting device will send a BGP message of type XXX to the partner device requesting the list of the NLRI. (excerpted from rfc2918)
-            </t>
-
-            <figure title="Version Negotiation Packet" anchor="version-negotiation-format">
-<artwork><![CDATA[
-Message Format: One AFI, SAFI encoded as
-    
-0       7      15      23      31
-+-------+-------+-------+-------+
-|      AFI      | Res.  | SAFI  |
-+-------+-------+-------+-------+
-]]></artwork></figure>
-
-            <t>
-                The meaning, use and encoding of this AFI, SAFI field is the same as defined in [BGP-MP, sect. 7]. More specifically,
-            </t>
-
-            <t>
-                AFI  - Address Family Identifier (16 bit).
-            </t>
-
-            <t>
-                Res. - Reserved (8 bit) field. Should be set to 0 by the sender and ignored by the receiver.
-            </t>
-
-            <t>
-                SAFI - Subsequent Address Family Identifier (8 bit).
-            </t>
-
-            <t>
-                <list style="symbols">
-                    <t>Responses will include:</t>
-                    <t>Count of NLRI accepted (unsigned 32-bits)</t>
-                    <t>Count of NLRI rejected (unsigned 32-bits)</t>
-                    <t>List of NLRI accepted (NLRI list in same format as UPDATE)</t>
-                    <t>List of NLRI rejected (NLRI list in same format as UPDATE - infeasible)</t>
-                </list>
-            </t>
-        </section>
-
-
-        <section anchor="Acknowledgements" title="Acknowledgements">
-            <t>
-                The authors would like to thank the following people for their comments and support:
-                    XXX.
-            </t>
-        </section>
-
-        <section anchor="Security" title="Security Considerations">
-            <t>
-                This message MAY be subject to rate-limits by a partner device to protect itself from CPU or other resource exhaustion.  A suggested interval is to not permit more than one request per 60 seconds.
-            </t>
-            </section>
-        <section title="IANA Considerations">
-            <t>
-                This document has unknown IANA Considerations
-            </t>
-        </section>
-    </middle>
-
-    <back>
-
-        <references title="Normative References">
-            <?rfc include="reference.RFC.2119.xml"?>
-            <?rfc include="reference.RFC.4271.xml"?>
-            <!-- <?rfc include="reference.RFC.4760.xml"?> -->
-            <!-- <?rfc include="reference.RFC.5492.xml"?> -->
-        </references>
-
-<!--
-        <references title="Informational References">
-            <?rfc include="reference.RFC.2918.xml"?>
-        </references>
--->
-
-    </back>
-
+        <t>Count of NLRI accepted (unsigned 32-bits)</t>
+        <t>Count of NLRI rejected (unsigned 32-bits)</t>
+        <t>List of NLRI accepted (NLRI list in same format as UPDATE)</t>
+        <t>List of NLRI rejected (NLRI list in same format as UPDATE - infeasible)</t>
+    </section>
+    <section anchor="Acknowledgements" title="Acknowledgements">
+      <t>The authors would like to thank the following people for their comments and support:
+            XXX.</t>
+    </section>
+    <section anchor="Security" title="Security Considerations">
+      <t>This message MAY be subject to rate-limits by a partner device to protect itself from CPU or other resource exhaustion.  A suggested interval is to not permit more than one request per 60 seconds.</t>
+    </section>
+    <section title="IANA Considerations">
+      <t>
+        This document has unknown IANA Considerations
+      </t>
+    </section>
+  </middle>
+  <back>
+    <references title="Normative References">
+      <?rfc include="reference.RFC.2119.xml"?>
+      <?rfc include="reference.RFC.4271.xml"?>
+      <?rfc include="reference.RFC.4760.xml"?>
+      <?rfc include="reference.RFC.5492.xml"?>
+    </references>
+    <references title="Informational References">
+      <?rfc include="reference.RFC.2918.xml"?>
+    </references>
+  </back>
 </rfc>
